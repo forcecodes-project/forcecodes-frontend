@@ -1,0 +1,55 @@
+header {
+    order: 1;
+}
+
+.nav-link {
+    color: white
+}
+
+
+main {
+    order: 2;
+    flex-grow: 1;
+    background-color: #28242c;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #28242c;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+footer {
+    order: 3;
+    width: 100%;
+    bottom: 0;
+    height: 60px;
+    position: absolute;
+    font-family: sans-serif;
+}
+
+
+footer p {
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: solid 1px white;
+}
+
+.card {
+    background-color: #28242c;
+}
+
+.table {
+    background-color: #28242c;
+    color: white;
+}
+
+.circle_progress {
+    font-size: 24px;
+}
+
