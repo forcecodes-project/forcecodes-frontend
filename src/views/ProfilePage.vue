@@ -14,7 +14,7 @@ import useUsersStore from "@/stores/users";
 export default {
   name: "ProfilePage",
   components: {FooterBlock, ProfileBlock, HeaderBlock},
-   computed: {
+  computed: {
     ...mapState(useUsersStore, ['user', 'attempts'])
   },
   methods: {

@@ -5,13 +5,18 @@
 </template>
 
 <script>
-import HeaderBlock from "@/components/Header.vue";
 import FooterBlock from "@/components/Footer.vue";
 import ContactsBlock from "@/components/Contacts.vue"
+import HeaderBlock from "@/components/Header.vue";
+import {mapState} from "pinia";
+import useUsersStore from "@/stores/users";
 
 export default {
   name: "ContactsPage",
-  components: {FooterBlock, ContactsBlock, HeaderBlock}
+  components: {HeaderBlock, FooterBlock, ContactsBlock},
+  computed: {
+    ...mapState(useUsersStore, ['user'])
+  },
 }
 </script>
 

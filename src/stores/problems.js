@@ -13,11 +13,14 @@ const useProblemsStore = defineStore('problems', {
 
                 this.problems = response.data;
 
+
                 return response;
             },
 
             async loadOneProblem(problemId) {
-                return await problemsApi.getOne(problemId)
+                const response = await problemsApi.getOne(problemId)
+
+                return response.data;
             },
 
         }

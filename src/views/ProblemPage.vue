@@ -4,6 +4,8 @@
       :title="problems[parseInt($route.params.id) -1].title"
       :author_id="problems[parseInt($route.params.id) - 1].author_id"
       :description="problems[parseInt($route.params.id) - 1].description"
+      :difficulty="problems[parseInt($route.params.id) - 1].difficulty"
+      :acceptance="problems[parseInt($route.params.id) - 1].acceptance"
       :id="problems[parseInt($route.params.id) - 1].id"/>
   <footer-block/>
 </template>

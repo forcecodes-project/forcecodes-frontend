@@ -1,13 +1,12 @@
 <template>
-  <div style="margin-left: 40px">
-    <h1 class="mb-3">
+  <main>
+    <h1 class="mt-3 text-center">
       Your profile
     </h1>
-    <div class="container" style="margin-left: 0">
-      <div class="row">
-        <h2 id="user_name" class="text col">Your name: {{ user.username }}</h2>
+      <div class="row mt-3" style="margin-bottom: 150px">
+        <h2 id="user_name" class="text col mt-3">Your name: {{ user.username }}</h2>
         <div class="col">
-          <h3>Percent of problems solved:</h3>
+          <h3 class="mt-3 mb-3">Percent of problems solved:</h3>
           <circle-progress class="circle_progress"
                            :percent="(this.attempts.length / this.problems.length) * 100"
                            :is-gradient="true"
@@ -18,13 +17,12 @@
                            :show-percent="true"/>
         </div>
       </div>
-    </div>
-    <h3 class="mt-3">Recently solved</h3>
-    <table class="table" id="attempts_table" style="max-width: 40rem;">
+    <h3 class="mt-3 mb-3">Recently solved</h3>
+    <table class="table mb-3" id="attempts_table" style="max-width: 40rem; margin-bottom: 300px">
       <thead>
       <tr>
         <th scope="col">Attempt</th>
-        <th scope="col">Author id</th>
+        <th scope="col">Title</th>
         <th scope="col">Status</th>
         <th scope="col">Language</th>
       </tr>
@@ -32,18 +30,15 @@
       <tbody>
       <tr v-for="attempt in Attempts" :key="attempt.id" style="vertical-align: middle">
         <td>№ {{ attempt.id }}</td>
-        <!--        TODO: передавать с бэка название задачи, а не айди автора + когда решена-->
-        <td>{{ attempt.author_id }}</td>
+        <td>{{ attempt.problem_name }}</td>
         <td>{{ attempt.status }}</td>
         <td>{{ attempt.language }}</td>
       </tr>
       </tbody>
     </table>
-    <div>
-      <button class="btn btn-success mt-3 mx-1" @click="logout_btn" type="button" aria-pressed="true">Logout
+      <button class="btn mt-3 mx-1" style="background-color: #02b095" @click="logout_btn" type="button" aria-pressed="true">Logout
       </button>
-    </div>
-  </div>
+  </main>
 </template>
 
 <script>

@@ -1,11 +1,14 @@
 <template>
-  <div class="card border" style="max-width: 30rem; margin: 40px;">
-    <div class="card-header border-white">{{ title }}</div>
-    <div class="card-body">
-      <h5 class="card-title">{{ description }}</h5>
-      <p class="card-text">Author id: {{ author_id }}</p>
+  <main>
+    <div class="card border mt-3" style="max-width: 30rem;">
+      <div class="card-header" style="border-bottom: solid 1px">{{ title }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ description }}</h5>
+        <p class="card-text">Complexity: {{ difficulty }}</p>
+        <p style="font-size: 14px" class="card-text">Author id: {{ author_id }}</p>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -28,7 +31,19 @@ export default {
     id: {
       type: Number,
       required: true
-    }
+    },
+    difficulty: {
+      type: String,
+      required: true
+    },
+    acceptance: {
+      type: Number,
+      required: true
+    },
+    // status: {
+    //   type: String,
+    //   required: true
+    // }
   },
 }
 </script>

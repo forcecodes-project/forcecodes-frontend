@@ -94,12 +94,12 @@
 <!--      </div>-->
       <p
           v-if="err"
-          class="login-error text-danger text-center">
+          class="login-error text-center" style="color:rgb(194,62,86)">
         <strong>{{ err }}</strong>
       </p>
       <div class="row justify-content-center">
         <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 text-center">
-          <button type="button" @click="signup" class="btn btn-success" aria-pressed="true" id="register">Sign up</button>
+          <button type="button" @click="signup" class="btn" style="background-color: #02b095" aria-pressed="true" id="register">Sign up</button>
         </div>
       </div>
     </form>

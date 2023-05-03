@@ -1,5 +1,5 @@
 <template>
-  <main class="container-xl p-5 mb-5">
+  <main>
     <h1 class="row mb-4 mt-4 justify-content-center">Sign in</h1>
     <form>
       <div class="form-floating">
@@ -34,22 +34,20 @@
       </div>
       <p
           v-if="err"
-          class="login-error text-danger text-center">
+          class="login-error text-center" style="color:rgb(194,62,86)">
         <strong>{{ err }}</strong>
       </p>
       <div class="row justify-content-center">
         <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 text-center">
-          <button type="button" @click="signin" class="btn btn-success" aria-pressed="true" id="register">Sign in
+          <button type="button" @click="signin" class="btn" style="background-color: #02b095" aria-pressed="true">Sign in
           </button>
         </div>
       </div>
     </form>
     <div class="row mt-3">
-      <router-link to="/">Back</router-link>
+      <a href="/register" class="link" style="font-size: 16px; color: #02b095">Sign up</a>
     </div>
-
   </main>
-
 </template>
 
 <script>

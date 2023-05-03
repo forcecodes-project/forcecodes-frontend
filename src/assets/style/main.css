@@ -1,5 +1,7 @@
 header {
     order: 1;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 .nav-link {
@@ -11,6 +13,8 @@ main {
     order: 2;
     flex-grow: 1;
     background-color: #28242c;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 body {
@@ -19,7 +23,6 @@ body {
     flex-direction: column;
     color: white;
     background-color: #28242c;
-    padding-bottom: 60px;
     position: relative;
 }
 
@@ -27,7 +30,6 @@ footer {
     order: 3;
     width: 100%;
     bottom: 0;
-    height: 60px;
     position: absolute;
     font-family: sans-serif;
 }
@@ -36,8 +38,9 @@ footer {
 footer p {
     padding-left: 10px;
     padding-top: 20px;
-    padding-bottom: 20px;
     border-top: solid 1px white;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 .card {
@@ -52,4 +55,7 @@ footer p {
 .circle_progress {
     font-size: 24px;
 }
+
+
+
 
