@@ -7,6 +7,7 @@ import ProblemsPage from "@/views/ProblemsPage.vue";
 import RatingPage from "@/views/RatingPage.vue";
 import ProfilePage from "@/views/ProfilePage.vue";
 import ProblemPage from "@/views/ProblemPage.vue";
+import PremiumPage from "@/views/PremiumPage.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,7 +19,8 @@ const router = createRouter({
         {path: "/problems", component: ProblemsPage},
         {path: "/rating", component: RatingPage},
         {path: "/profile", component: ProfilePage},
-        {path: "/problem/:id", component: ProblemPage}
+        {path: "/problem/:id", component: ProblemPage},
+        {path: "/premium", component: PremiumPage},
     ]
 })
 

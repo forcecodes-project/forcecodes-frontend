@@ -3,10 +3,14 @@
     <h1 class="mt-3 text-center">
       Your profile
     </h1>
-      <div class="row mt-3" style="margin-bottom: 150px">
-        <h2 id="user_name" class="text col mt-3">Your name: {{ user.username }}</h2>
+      <div class="row mt-3">
         <div class="col">
-          <h3 class="mt-3 mb-3">Percent of problems solved:</h3>
+          <h2 id="user_name" class="text col mt-3">Your name: {{ user.username }}</h2>
+          <h4 id="country" class="text col">Country: </h4>
+          <h4 id="country" class="text col">Email: </h4>
+        </div>
+        <div class="col">
+          <h2 class="mt-3 mb-3">Percent of problems solved:</h2>
           <circle-progress class="circle_progress"
                            :percent="(this.attempts.length / this.problems.length) * 100"
                            :is-gradient="true"
@@ -32,11 +36,11 @@
         <td>№ {{ attempt.id }}</td>
         <td>{{ attempt.problem_name }}</td>
         <td>{{ attempt.status }}</td>
-        <td>{{ attempt.language }}</td>
+        <td>Python</td>
       </tr>
       </tbody>
     </table>
-      <button class="btn mt-3 mx-1" style="background-color: #02b095" @click="logout_btn" type="button" aria-pressed="true">Logout
+      <button class="btn mt-3 mx-1" style="background-color: #02b095; float: right" @click="logout_btn" type="button" aria-pressed="true">Logout
       </button>
   </main>
 </template>
