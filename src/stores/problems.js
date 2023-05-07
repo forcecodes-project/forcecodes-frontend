@@ -8,8 +8,8 @@ const useProblemsStore = defineStore('problems', {
         }),
 
         actions: {
-            async loadProblems() {
-                const response = await problemsApi.getAll();
+            async loadProblems(token) {
+                const response = await problemsApi.getAll(token);
 
                 this.problems = response.data;
 

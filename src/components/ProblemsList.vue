@@ -1,4 +1,5 @@
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <main>
     <h4 class="mt-3 text-center">Problems list</h4>
     <div class="mt-3 mb-3">
@@ -7,15 +8,13 @@
 
     <div class="btn-group" role="group">
       <div>
-        <button type="button" class="btn mx-2" style="background-color: #02b095" @click="console.log('Kurwa')" aria-pressed="true">Difficulty
+        <button type="button" class="btn mx-2" style="background-color: #02b095" @click="console.log('Kurwa')"
+                aria-pressed="true">Difficulty
         </button>
       </div>
-      <!--    <div>-->
-      <!--      <button type="button" class="btn btn-success mx-2" @click="console.log('#HateThis')" aria-pressed="true">Status-->
-      <!--      </button>-->
-      <!--    </div>-->
       <div>
-        <button type="button" class="btn mx-2" style="background-color: #02b095" @click="console.log('Suka')" aria-pressed="true">Tags
+        <button type="button" class="btn mx-2" style="background-color: #02b095" @click="console.log('#HateThis')"
+                aria-pressed="true">Status
         </button>
       </div>
       <div class="input-group mx-3">
@@ -30,22 +29,22 @@
       <table class="table" id="problems_table">
         <thead>
         <tr style="text-align: center">
-          <!--        <th scope="col">Status</th>-->
+          <th scope="col">Status</th>
           <th scope="col">Title</th>
-          <!--        <th scope="col">Solution</th>-->
           <th scope="col">Acceptance</th>
           <th scope="col">Complexity</th>
         </tr>
         </thead>
         <tbody>
         <tr v-for="problem in Problems" :key="problem.id" style="vertical-align: middle; text-align: center">
-          <!--        <td>status icon</td>-->
+          <td v-if="problem.status === 'success'"><i class="fa fa-check" style="color: #BB86FC; font-size: 20px" aria-hidden="true"></i></td>
+          <td v-else-if="problem.status === 'failed'"><i class="fa fa-times" style="color: #BB86FC; font-size: 20px" aria-hidden="true"></i></td>
+          <td v-else><i class="fa fa-question-circle" style="color: #BB86FC; font-size: 20px" aria-hidden="true"></i></td>
           <td>
             <button class="btn btn-link" @click="this.$router.push(`/problem/${problem.id}`)" style="color: white">
               {{ problem.title }}
             </button>
           </td>
-          <!--        <td>solution icon</td>-->
           <td>{{ problem.acceptance }}%</td>
           <td>{{ problem.difficulty }}</td>
         </tr>
@@ -58,6 +57,7 @@
 <script>
 import useProblemsStore from "@/stores/problems";
 import {mapActions, mapState} from "pinia";
+import useUsersStore from "@/stores/users";
 
 export default {
   name: "ProblemsBlock",
@@ -67,6 +67,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(useUsersStore, ['token']),
     ...mapState(useProblemsStore, ['problems']),
     Problems() {
       return this.problems
@@ -74,9 +75,10 @@ export default {
   },
   methods: {
     ...mapActions(useProblemsStore, ['loadProblems']),
+
   },
   mounted() {
-    this.loadProblems();
+    this.loadProblems(this.token);
   }
 }
 </script>

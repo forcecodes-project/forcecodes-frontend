@@ -3,9 +3,12 @@ class ProblemsApi {
         this.API = instance
     }
 
-    getAll = async () => {
+    getAll = async (token) => {
         return this.API({
-            url: '/problems'
+            url: '/problems',
+            headers: {
+                'Token': `${token}`
+            }
         })
     }
 
