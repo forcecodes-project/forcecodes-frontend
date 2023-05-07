@@ -31,12 +31,22 @@
         </div>
       </div>
     </div>
+    <div class="mt-3">
+      <button class="btn" style="background-color: #02b095" @click="goToPremium">Get premium</button>
+    </div>
   </main>
 </template>
 
 <script>
+
 export default {
-  name: "ContactsBlock"
+  name: "ContactsBlock",
+  methods: {
+    goToPremium() {
+      this.$router.push('/premium')
+    }
+
+  }
 }
 </script>
 
