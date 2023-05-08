@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="mt-3">
-      <button class="btn" style="background-color: #02b095" @click="goToPremium">Get premium</button>
+      <button class="btn-link btn mt-3" style="color: #02b095;" @click="goToPremium">Support us</button>
     </div>
   </main>
 </template>
