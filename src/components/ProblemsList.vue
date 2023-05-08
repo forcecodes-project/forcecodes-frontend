@@ -20,7 +20,8 @@
       </div>
       <div class="input-group mx-3">
         <div class="form-outline">
-          <input type="search" id="form1" class="form-control" placeholder="Search..." v-model="search_data"/>
+          <input type="search" id="form1" class="form-control" placeholder="Search..." v-model="search_data"
+                 @keyup="search"/>
           <label class="form-label" for="form1"></label>
         </div>
       </div>
@@ -36,8 +37,25 @@
           <th scope="col">Complexity</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody v-if="!search_data">
         <tr v-for="problem in Problems" :key="problem.id" style="vertical-align: middle; text-align: center">
+          <td v-if="problem.status === 'success'"><i class="fa fa-check" style="color: #BB86FC; font-size: 20px"
+                                                     aria-hidden="true"></i></td>
+          <td v-else-if="problem.status === 'failed'"><i class="fa fa-times" style="color: #BB86FC; font-size: 20px"
+                                                         aria-hidden="true"></i></td>
+          <td v-else><i class="fa fa-question-circle" style="color: #BB86FC; font-size: 20px" aria-hidden="true"></i>
+          </td>
+          <td>
+            <button class="btn btn-link" @click="this.$router.push(`/problem/${problem.id}`)" style="color: white">
+              {{ problem.title }}
+            </button>
+          </td>
+          <td>{{ problem.acceptance }}%</td>
+          <td>{{ problem.difficulty }}</td>
+        </tr>
+        </tbody>
+        <tbody v-else>
+        <tr v-for="problem in this.result" :key="problem.id" style="vertical-align: middle; text-align: center">
           <td v-if="problem.status === 'success'"><i class="fa fa-check" style="color: #BB86FC; font-size: 20px"
                                                      aria-hidden="true"></i></td>
           <td v-else-if="problem.status === 'failed'"><i class="fa fa-times" style="color: #BB86FC; font-size: 20px"
@@ -68,7 +86,8 @@ export default {
   name: "ProblemsBlock",
   data() {
     return {
-      search_data: ""
+      search_data: "",
+      result: ""
     };
   },
   computed: {
@@ -84,11 +103,27 @@ export default {
     randomId(max) {
       let id = Math.ceil(Math.random() * max);
       this.$router.push('/problem/' + id)
-    }
+    },
 
+    async search() {
+      let data = encodeURIComponent(this.search_data)
+
+      const res = await fetch(`http://localhost:8000/problems/?search=${data}`, {
+        method: "GET",
+        headers: {
+          'accept': 'application/json',
+          'Token': `${this.token}`
+        }
+      }).then(res => res.json())
+
+      this.result = res
+
+      return res
+    }
   },
   mounted() {
     this.loadProblems(this.token);
+    this.search()
   }
 }
 </script>
