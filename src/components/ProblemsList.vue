@@ -3,13 +3,14 @@
   <main>
     <h4 class="mt-3 text-center">Problems list</h4>
     <div class="mt-3 mb-3">
-      <button class="btn btn-link mt-3 mb-3" style="color: #BB86FC" @click="console.log('Cherti')">Random</button>
+      <button class="btn btn-link mt-3 mb-3" style="color: #BB86FC" @click="randomId(this.problems.length)">Random
+      </button>
     </div>
 
     <div class="btn-group" role="group">
       <div>
-        <button type="button" class="btn mx-2" style="background-color: #02b095" @click="console.log('Kurwa')"
-                aria-pressed="true">Difficulty
+        <button type="button" class="btn mx-2" style="background-color: #02b095" @click="console.log('aboba')"
+                aria-pressed="true">Complexity
         </button>
       </div>
       <div>
@@ -37,9 +38,12 @@
         </thead>
         <tbody>
         <tr v-for="problem in Problems" :key="problem.id" style="vertical-align: middle; text-align: center">
-          <td v-if="problem.status === 'success'"><i class="fa fa-check" style="color: #BB86FC; font-size: 20px" aria-hidden="true"></i></td>
-          <td v-else-if="problem.status === 'failed'"><i class="fa fa-times" style="color: #BB86FC; font-size: 20px" aria-hidden="true"></i></td>
-          <td v-else><i class="fa fa-question-circle" style="color: #BB86FC; font-size: 20px" aria-hidden="true"></i></td>
+          <td v-if="problem.status === 'success'"><i class="fa fa-check" style="color: #BB86FC; font-size: 20px"
+                                                     aria-hidden="true"></i></td>
+          <td v-else-if="problem.status === 'failed'"><i class="fa fa-times" style="color: #BB86FC; font-size: 20px"
+                                                         aria-hidden="true"></i></td>
+          <td v-else><i class="fa fa-question-circle" style="color: #BB86FC; font-size: 20px" aria-hidden="true"></i>
+          </td>
           <td>
             <button class="btn btn-link" @click="this.$router.push(`/problem/${problem.id}`)" style="color: white">
               {{ problem.title }}
@@ -59,6 +63,7 @@ import useProblemsStore from "@/stores/problems";
 import {mapActions, mapState} from "pinia";
 import useUsersStore from "@/stores/users";
 
+
 export default {
   name: "ProblemsBlock",
   data() {
@@ -75,6 +80,11 @@ export default {
   },
   methods: {
     ...mapActions(useProblemsStore, ['loadProblems']),
+
+    randomId(max) {
+      let id = Math.ceil(Math.random() * max);
+      this.$router.push('/problem/' + id)
+    }
 
   },
   mounted() {
