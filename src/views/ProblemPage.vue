@@ -6,6 +6,7 @@
       :description="problems[parseInt($route.params.id) - 1].description"
       :difficulty="problems[parseInt($route.params.id) - 1].difficulty"
       :acceptance="problems[parseInt($route.params.id) - 1].acceptance"
+      :status="problems[parseInt($route.params.id) - 1].status"
       :id="problems[parseInt($route.params.id) - 1].id"/>
   <footer-block/>
 </template>
