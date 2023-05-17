@@ -1,0 +1,68 @@
+header {
+    order: 1;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.nav-link {
+    color: white
+}
+
+
+main {
+    order: 2;
+    flex-grow: 1;
+    background-color: #28242c;
+    margin-left: 150px;
+    margin-right: 150px;
+    /*min-height: 100vh;*/
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #28242c;
+    position: relative;
+}
+
+footer {
+    order: 3;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    font-family: sans-serif;
+}
+
+
+footer p {
+    padding-left: 10px;
+    padding-top: 20px;
+    border-top: solid 1px white;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.card {
+    background-color: #28242c;
+}
+
+.table {
+    background-color: #28242c;
+    color: white;
+}
+
+.circle_progress {
+    font-size: 24px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+
+
